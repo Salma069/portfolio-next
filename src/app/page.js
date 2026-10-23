@@ -5,7 +5,7 @@ import Kartu from "@/components/Kartu";
 const skills = [
   { nama: "HTML", level: "Menengah" },
   { nama: "CSS", level: "Menengah" },
-  { nama: "Git dan Gthub", level: "Menengah" },
+  { nama: "Git dan Github", level: "Menengah" },
   { nama: "Javascript", level: "Dasar" },
 ];
 
@@ -16,7 +16,7 @@ const hobies = [
 ];
 
 const plans = [
-  { plan: "Expertise Frontend Developer" },
+  { plan: "Expertise Fullstack Developer" },
   { plan: "Expertise Cyber Security" },
   { plan: "Membangun Portfolio Profesional" },
 ];
@@ -56,10 +56,10 @@ const jadwal = [
 
 export default function Home() {
   return (
-    <main className="mx-auto max-w-5xl px-4 py-10 m">
+    <main className="mx-auto max-w-5xl px-4 py-10 m grid">
       <Hero
         nama={"Salma Rayya"}
-        tagline={"Siswa SMK Jurusan RPL di Kelas Industri UBIG"}
+        tagline={"Siswa Kelas XI SMK Jurusan RPL di Kelas Industri UBIG"}
       />
       {/* Tentang */}
 
@@ -68,20 +68,13 @@ export default function Home() {
           judul={"Tentang"}
           children={
             <p>
-              Saya adalah siswi Rekayasa Perangkat Lunak (RPL) di SMKN 1
-              Pasuruan yang memiliki minat dalam pengembangan web dan desain
-              antarmuka. Saya berfokus pada pengembangan kemampuan Frontend
-              Developer dengan mempelajari HTML, CSS, JavaScript, React, dan
-              Next.js. Saya senang menggabungkan kreativitas visual dengan
-              logika pemrograman untuk membangun website yang modern, responsif,
-              dan interaktif. Melalui berbagai proyek, saya terus mengasah
-              kemampuan dalam merancang antarmuka, mengelola data, serta
-              mengembangkan fitur yang fungsional. Saya memiliki semangat
-              belajar yang tinggi, senang mengeksplorasi teknologi baru, dan
-              berusaha memahami setiap proses pengembangan secara mandiri. Ke
-              depannya, saya ingin terus meningkatkan keterampilan, memperluas
-              wawasan di bidang teknologi, dan menghasilkan karya digital yang
-              bermanfaat serta memiliki kualitas yang baik.
+              Saya adalah siswi RPL di SMKN 1 Pasuruan yang tertarik pada
+              pengembangan web dan desain antarmuka. Saya sedang mengembangkan
+              kemampuan Frontend Developer dengan mempelajari HTML, CSS,
+              JavaScript, React, dan Next.js. Saya senang menciptakan website
+              yang modern, responsif, dan interaktif, serta terus belajar
+              melalui berbagai proyek untuk meningkatkan kemampuan dan
+              menghasilkan karya digital yang bermanfaat.
             </p>
           }
         />
@@ -90,7 +83,7 @@ export default function Home() {
       {/* Hobi */}
 
       <section className="mt-4">
-        <div className="grid grid-cols-2 md:grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           <Kartu
             judul={"Hobi"}
             children=<div className="pl-4">
@@ -115,20 +108,18 @@ export default function Home() {
       {/* Skill */}
 
       <section className="mt-4">
-        <div className="md:grid-cols-2 gap-4">
-          <Kartu
-            judul={"Keahlian"}
-            children=<div className="grid grid-cols-3 gap-3">
-              {skills.map((skill) => (
-                <SkillCard
-                  key={skill.nama}
-                  nama={skill.nama}
-                  level={skill.level}
-                />
-              ))}
-            </div>
-          />
-        </div>
+        <Kartu
+          judul={"Keahlian"}
+          children=<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+            {skills.map((skill) => (
+              <SkillCard
+                key={skill.nama}
+                nama={skill.nama}
+                level={skill.level}
+              />
+            ))}
+          </div>
+        />
       </section>
 
       {/* Jadwal */}
@@ -137,29 +128,27 @@ export default function Home() {
         <Kartu
           judul="Jadwal Belajar"
           children={
-  <div className="overflow-x-auto">
-    <table className="w-full text-left">
-      <thead className="bg-utama">
-        <tr className="border-b text-white">
-          <th className="p-3">Hari</th>
-          <th className="p-3">Waktu</th>
-          <th className="p-3">Kegiatan</th>
-        </tr>
-      </thead>
+            <div className="overflow-x-auto">
+              <table className="w-full text-left ">
+                <thead className="bg-utama">
+                  <tr className="border-b text-white">
+                    <th className="p-3">Hari</th>
+                    <th className="p-3">Waktu</th>
+                    <th className="p-3">Kegiatan</th>
+                  </tr>
+                </thead>
 
-      <tbody>
-        {jadwal.map((item) => (
-          <tr key={item.day} className="border-b">
-            <td className="p-3">{item.day}</td>
-            <td className="p-3">{item.waktu}</td>
-            <td className="p-3">{item.kegiatan}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  </div>
-
-              
+                <tbody>
+                  {jadwal.map((item) => (
+                    <tr key={item.day} className="border-b">
+                      <td className="p-3">{item.day}</td>
+                      <td className="p-3">{item.waktu}</td>
+                      <td className="p-3">{item.kegiatan}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           }
         />
       </section>
