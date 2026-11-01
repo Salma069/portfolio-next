@@ -61,12 +61,12 @@ const jadwal = [
 export default function Tentang() {
   return (
     <main className="mx-auto max-w-5xl px-4 py-10 m grid">
-        <h1 className="text-4xl font-bold text-utama">Tentang Saya</h1>
+        <h1 className="text-4xl font-bold text-utama dark:text-blue-300">Tentang Saya</h1>
       <section className="mt-10">
         <Kartu
           judul={"Perkenalan"}
           children={
-            <p>
+            <p className="text-gray-700 dark:text-gray-300">
               Saya adalah siswi RPL di SMKN 1 Pasuruan yang tertarik pada
               pengembangan web dan desain antarmuka. Saya sedang mengembangkan
               kemampuan Frontend Developer dengan mempelajari HTML, CSS,
@@ -85,7 +85,7 @@ export default function Tentang() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           <Kartu
             judul={"Hobi"}
-            children=<div className="pl-4">
+            children=<div className="pl-4 dark:text-gray-200">
               {hobies.map((item) => (
                 <li key={item.hobi}>{item.hobi}</li>
               ))}
@@ -94,7 +94,7 @@ export default function Tentang() {
           <Kartu
             judul="Target"
             children={
-              <ol className="list-decimal pl-5">
+              <ol className="list-decimal pl-5 dark:text-gray-200">
                 {plans.map((item) => (
                   <li key={item.plan}>{item.plan}</li>
                 ))}
@@ -140,9 +140,9 @@ export default function Tentang() {
                 <tbody>
                   {jadwal.map((item) => (
                     <tr key={item.day} className="border-b">
-                      <td className="p-3">{item.day}</td>
-                      <td className="p-3">{item.waktu}</td>
-                      <td className="p-3">{item.kegiatan}</td>
+                      <td className="p-3 dark:text-gray-200">{item.day}</td>
+                      <td className="p-3 dark:text-gray-200">{item.waktu}</td>
+                      <td className="p-3 dark:text-gray-200">{item.kegiatan}</td>
                     </tr>
                   ))}
                 </tbody>

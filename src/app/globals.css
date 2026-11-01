@@ -2,6 +2,11 @@
 
 @theme {
   --color-utama: black;
-  --color-aksen: green;
-  --color-latar: pink;
+  --color-aksen: #043f77;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+html {
+  scrollbar-gutter: stable;
 }

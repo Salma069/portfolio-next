@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import TombolTema from "./TombolTema";
 
 const menu = [
   { href: "/", label: "Beranda" },
@@ -14,8 +15,8 @@ export default function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
   return (
-    <header className="bg-utama text-white">
-      <nav className="mx-auto flex max-w-5xl flex-col gap-3 px-4 py-4 md:flex-row md:justify-between">
+    <header className="bg-utama text-white dark:bg-blue-950">
+      <nav className="mx-auto flex max-w-5xl flex-col gap-3 px-4 py-4 md:flex-row md:justify-between font-semibold md:items-center">
         <Link href="/">Salma Rayya</Link>
         <ul className="flex flex-wrap gap-x-5 gap-y-2">
           {menu.map((item) => {
@@ -33,6 +34,7 @@ export default function Navbar() {
             );
           })}
         </ul>
+        <TombolTema/>
       </nav>
     </header>
   );
