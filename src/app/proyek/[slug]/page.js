@@ -23,32 +23,28 @@ export default async function DetailProyek({ params }) {
 
   return (
     <main className="mx-auto max-w-3xl px-4 py-10">
-     <nav
-  aria-label="Breadcrumb"
-  className="flex flex-wrap items-center gap-2 text-sm mb-6"
->
-  <Link href="/" className="text-aksen hover:underline">
-    Beranda
-  </Link>
-
-  {" / "}
-
-  <Link href="/proyek" className="text-aksen hover:underline">
-    Proyek
-  </Link>
-
-  {" / "}
-
-  <span className="text-gray-600">
-    {item.judul}
-  </span>
-</nav>
-      <h1
-        className="mt-4 text-3xl font-bold text-utama md:text-4xl"
+      <nav
+        aria-label="Breadcrumb"
+        className="flex flex-wrap items-center gap-2 text-sm mb-6 dark:text-gray-300"
       >
+        <Link href="/" className="text-aksen hover:underline dark:text-blue-200">
+          Beranda
+        </Link>
+
+        {" / "}
+
+        <Link href="/proyek" className="text-aksen hover:underline dark:text-blue-200">
+          Proyek
+        </Link>
+
+        {" / "}
+
+        <span className="text-gray-600 dark:text-gray-400">{item.judul}</span>
+      </nav>
+      <h1 className="mt-4 text-3xl font-bold text-utama dark:text-blue-200 md:text-4xl">
         {item.judul}
       </h1>
-      <p className="mt-2 text-gray-600">
+      <p className="mt-2 text-gray-600 dark:text-gray-400">
         {item.kategori} &middot; Dibuat di {item.minggu}
       </p>
       <Image
@@ -57,11 +53,11 @@ export default async function DetailProyek({ params }) {
         width={640}
         height={420}
         loading="eager"
-        className="mt-6 h-auto w-full rounded-xl border border-gray-200"
+        className="mt-6 h-auto w-full rounded-xl border border-gray-200 dark:border-gray-600 dark:text-gray-300"
       />
-      <p className="mt-6 text-lg">{item.deskripsi}</p>
-      <h2 className="mt-8 text-2xl font-bold text-utama">Yang Saya Pelajari</h2>
-      <ul className="mt-3 list-disc pl-5">
+      <p className="mt-6 text-lg dark:text-gray-200">{item.deskripsi}</p>
+      <h2 className="mt-8 text-2xl font-bold text-utama dark:text-gray-300">Yang Saya Pelajari</h2>
+      <ul className="mt-3 list-disc pl-5 dark:text-gray-300">
         {item.fitur.map((f) => (
           <li key={f}>{f}</li>
         ))}
