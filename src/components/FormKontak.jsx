@@ -9,8 +9,9 @@ export default function FormKontak() {
     const [email, setEmail] = useState("");
     const [nomor, setNomor] = useState("");
     const [pesan, setPesan] = useState("");
-    const [perlu, setPerlu] = useState("")
+    const [keperluan, setKeperluan] = useState("")
     const [error, setError] = useState({});
+    const [berhasil, setBerhasil] = useState(false);
 
     function kirim(e) {
         e.preventDefault();
@@ -22,8 +23,18 @@ export default function FormKontak() {
         if (!email.includes("@")) {
             errorBaru.email = "Email harus memuat tanda @: example@gmail.com"
         }
+        if (nomor.length < 10) {
+            errorBaru.nomor = "Nomor HP harus lebih dari 10 digit"
+        }
+        if (keperluan === "") {
+            errorBaru.keperluan = "Keperluan wajib diisi"
+        }
+        if (pesan.trim().length < 10) {
+            errorBaru.pesan = "Pesan harus lebih dari 10 karakter"
+        }
 
         setError(errorBaru);
+        setBerhasil(Object.keys(errorBaru).length === 0);
     }
 
    return (
@@ -37,7 +48,9 @@ export default function FormKontak() {
           <form 
           className="w-full"
           onSubmit={kirim} noValidate
+          
           >
+            
             <div>
                 {/* nama */}
               <label htmlFor="nama" className="block font-semibold dark:text-gray-300">
@@ -71,6 +84,12 @@ export default function FormKontak() {
                 onChange={(e) => setEmail(e.target.value)}
                 className={kelasInput}
               />
+                            {error.email && 
+              <p className="mt-1 text-sm text-red-800">
+                {error.email}
+              </p> 
+              }
+
 
               {/* no hp */}
               <label htmlFor="nomor" className="block font-semibold dark:text-gray-300  ">
@@ -85,18 +104,25 @@ export default function FormKontak() {
                 onChange={(e) => setNomor(e.target.value)}
                 className={kelasInput}
               />
+              {error.nomor && 
+              <p className="mt-1 text-sm text-red-800">
+                {error.nomor}
+              </p> 
+              }
               {/* keperluan */}
 
               <label htmlFor="perlu" className="block font-semibold dark:text-gray-300">
                 Keperluan
               </label>
+              
               <select
                 id="keperluan"
                 name="keperluan"
-                onChange={(e) => setPerlu(e.target.value)}
+                onChange={(e) => setKeperluan(e.target.value)}
                 defaultValue=""
                 className={kelasInput}
               >
+                
                 <option value="" disabled>
                   Pilih keperluan
                 </option>
@@ -104,6 +130,12 @@ export default function FormKontak() {
                 <option value="jasa-website">Jasa pembuatan website</option>
                 <option value="ui-ux">Desain UI/UX</option>
               </select>
+                           
+ {error.keperluan && 
+              <p className="mt-1 text-sm text-red-800">
+                {error.keperluan}
+              </p> 
+              }
 
               {/* pesan */}
               <label htmlFor="pesan" className="block font-semibold dark:text-gray-300">
@@ -120,12 +152,19 @@ export default function FormKontak() {
                 onChange={(e) => setPesan(e.target.value)}
                 className={kelasInput}
               />
-              {error.email && 
-              <p className="mt-1 text-sm text-utama">
-                {error.email}
+                            {error.pesan && 
+              <p className="mt-1 text-sm text-red-800">
+                {error.pesan}
               </p> 
               }
-              
+{berhasil && (
+
+<p className="rounded-lg bg-green-100 p-3 text-green-800 dark:bg-
+green-900 dark:text-green-100">
+
+Terima kasih, {nama}! Pesanmu sudah lolos pemeriksaan.
+</p>
+)}
             </div>
             <button className="bg-red-700 m-2 px-4 py-2 rounded-lg">
               <h2 className="text-white font-semibold">Kirim Pesan</h2>
