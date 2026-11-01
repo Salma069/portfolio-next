@@ -4,7 +4,7 @@ export const proyek = [
     judul: "Halaman Profil Pertama",
     kategori: "HTML",
     minggu: "Minggu 01",
-    gambar: "/images/jadwal.png",
+    gambar: "/images/proyek.png",
     deskripsi: "Halaman web pertama saya, dibuat dengan HTML dasar.",
     fitur: [
       "Judul dan paragraf perkenalan dengan h1 dan p",
@@ -17,7 +17,7 @@ export const proyek = [
     judul: "Form Kontak",
     kategori: "HTML",
     minggu: "Minggu 02",
-    gambar: "/images/jadwal.png",
+    gambar: "/images/kontak.png",
     deskripsi: "Form dengan label dan validasi bawaan browser.",
     fitur: [
       "Lima isian dengan label yang terhubung",
@@ -30,7 +30,7 @@ export const proyek = [
     judul: "Tabel Jadwal Belajar",
     kategori: "HTML",
     minggu: "Minggu 02",
-    gambar: "/images/jadwal.png",
+    gambar: "/images/belajar.png",
     deskripsi: "Jadwal belajar mingguan dengan thead dan tbody.",
     fitur: [
       "Judul tabel dengan caption",

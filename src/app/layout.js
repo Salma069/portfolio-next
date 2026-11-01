@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col text-gray-900 dark:bg-gray-900">
+      <body className="min-h-full flex flex-col text-gray-900 bg-blue-100 dark:bg-gray-900">
         <script
           dangerouslySetInnerHTML={{
             __html: `

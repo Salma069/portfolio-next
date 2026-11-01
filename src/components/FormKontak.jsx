@@ -38,7 +38,7 @@ export default function FormKontak() {
     }
 
    return (
-    <main className="mx-auto w-full max-w-7xl px-4 py-8">
+    <main className="mx-auto w-full max-w-7xl px-4 py-8 rounded-2xl">
       <h1 className="text-3xl font-bold text-utama md:4xl dark:text-blue-200">Hubungi Saya</h1>
       <p className="mt-3 text-lg text-gray-700 dark:text-gray-300 mb-3">
         Punya pertanyaan atau ingin bekerja sama? Isi form berikut
@@ -160,7 +160,7 @@ export default function FormKontak() {
 {berhasil && (
 
 <p className="rounded-lg bg-green-100 p-3 text-green-800 dark:bg-
-green-900 dark:text-green-100">
+green-900 dark:text-green-900">
 
 Terima kasih, {nama}! Pesanmu sudah lolos pemeriksaan.
 </p>

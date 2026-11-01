@@ -10,11 +10,11 @@ export default function Kontak() {
     <main className="mx-auto w-full max-w-7xl px-4 py-8">
 
       <div className="flex flex-col md:items-stretch md:flex-row gap-4">
-        <div className="w-full min-w-0 flex-2 bg-white dark:bg-gray-800 rounded-lg px-6 py-4">
+        <div className="w-full min-w-0 flex-2 bg-white dark:bg-gray-800 rounded-2xl shadow-2xl px-6 py-4 ">
           <FormKontak/>
         </div>
 
-        <div className=" bg-white dark:bg-gray-800 lg:w-fit shrink-0 rounded-lg py-4 px-3 flex-1">
+        <div className=" bg-white shadow-2xl dark:bg-gray-800 lg:w-fit shrink-0 rounded-2xl shadow-3xl py-4 px-3 flex-1">
           <h1 className="text-2xl font-bold dark:text-blue-200">Temukan Saya di</h1>
           <h2 className="mt-2 dark:text-gray-300">Github</h2>
           <a

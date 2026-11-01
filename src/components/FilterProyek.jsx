@@ -6,9 +6,9 @@ import { useState } from "react";
 
 const daftarKategori = ["Semua", "HTML", "CSS", "JavaScript", "C++"];
 const tombolBiasa =
-  "rounded-full border border-utama px-4 py-1 text-sm font-semibold text-utama dark:text-blue-300 hover:bg-utama hover:text-white dark:hover:bg-blue-800 dark:hover:text-white";
+  "rounded-full border border-utama px-4 py-1 text-sm font-semibold text-utama dark:text-blue-300 hover:bg-utama hover:text-white dark:hover:bg-blue-800 dark:hover:text-white dark:border-blue-200";
 const tombolAktif =
-  "rounded-full border border-amber-200 bg-red-800 px-4 py-1 text-sm font-semibold text-white";
+  "rounded-full border bg-red-900 px-4 py-1 text-sm font-semibold text-white";
 
 export default function FilterProyek({ proyek }) {
   const [kategori, setKategori] = useState("Semua");
@@ -37,7 +37,7 @@ export default function FilterProyek({ proyek }) {
         ))}
       </div>
       <div>
-        <label>Cari Proyek:</label>
+        <label className="dark:text-gray-300">Cari Proyek:</label>
         <input
           type="text"
           id="cari"
