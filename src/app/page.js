@@ -12,7 +12,7 @@ const skills = [
   { nama: "Javascript", level: "Dasar" },
 ];
 
-const proyekTerbaru = proyek.slice(-3);
+const proyekTerbaru = proyek.slice(+3);
 
 export default function Home() {
   return (
@@ -40,7 +40,7 @@ export default function Home() {
       </section>
 
       {/* pROYEK */}
-      <section className="mx-auto max-w-5xl px-4 py-10">
+      <section className="mx-auto mt-6 max-w-5xl px-4 rounded-xl border border-gray-200 bg-white  dark:bg-gray-800 dark:border-gray-600 p-6 shadow-lg md: grid-cols-3">
         <h2 className="mb-4 text-2xl font-bold text-utama dark:text-blue-300" >Proyek Terbaru</h2>
         <div className="grid gap-6 md:grid-cols-3">
           {proyekTerbaru.map((item) => (

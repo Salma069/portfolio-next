@@ -5,7 +5,7 @@ export default function ProyekCard({ proyek }) {
   return (
   <main className="mx-auto w-full max-w-7xl px-4 py-8">            <Link
       href={`/proyek/${proyek.slug}`}
-      className="block overflow-hidden rounded-xl border border-gray-200 dark:border-gray-900 bg-white dark:bg-gray-800 shadow-sm hover:shadow-md"
+      className="block overflow-hidden rounded-xl border border-gray-200 dark:border-gray-900 bg-white dark:bg-gray-900 shadow-sm hover:shadow-md"
     >
       <Image
         src={proyek.gambar}
