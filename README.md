@@ -1,36 +1,104 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Struktur Database Portofolio
 
-## Getting Started
+## 1. Informasi Database
 
-First, run the development server:
+Database proyek portofolio ini menggunakan **Supabase** dengan konfigurasi berikut:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+| Informasi | Detail |
+|---|---|
+| Project Name | `portofolio-salma` |
+| Platform | Supabase |
+| Region | Southeast Asia (Singapore) |
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Konfigurasi Environment
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Alamat project dan publishable key disimpan dalam file `.env.local`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+File tersebut tidak diikutsertakan dalam repository GitHub karena sudah tercantum dalam `.gitignore` melalui aturan `.env*`.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 2. Tabel `projects`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Tabel `projects` digunakan untuk menyimpan daftar proyek yang ditampilkan pada halaman portofolio Salma.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Kolom | Tipe Data | Keterangan |
+|---|---|---|
+| `id` | `int8` | Primary key dengan nomor otomatis. |
+| `created_at` | `timestamptz` | Waktu pembuatan data, terisi otomatis menggunakan `now()`. |
+| `slug` | `text` | Penanda unik proyek pada URL, misalnya `halaman-profil`. |
+| `judul` | `text` | Judul proyek. |
+| `deskripsi` | `text` | Deskripsi singkat proyek. |
+| `kategori` | `text` | Kategori proyek: HTML, CSS, atau JavaScript. |
+| `minggu` | `text` | Minggu pengerjaan proyek, misalnya `Minggu 01`. |
+| `fitur` | `text[]` | Daftar fitur atau hal yang dipelajari dalam proyek. |
+| `gambar_url` | `text` | Lokasi gambar proyek di folder `public`, misalnya `/proyek/proyek-profil.png`. |
 
-## Deploy on Vercel
+### Row Level Security (RLS)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+RLS telah diaktifkan pada tabel `projects`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Policy yang diterapkan:
+
+- **Nama:** Pengunjung boleh membaca proyek.
+- **Role:** `anon`.
+- **Operation:** `SELECT`.
+- **Akses:** Pengunjung dapat membaca seluruh baris data proyek.
+
+---
+
+## 3. Tabel `messages`
+
+Tabel `messages` digunakan untuk menyimpan pesan yang dikirimkan pengunjung melalui formulir kontak pada website.
+
+| Kolom | Tipe Data | Keterangan |
+|---|---|---|
+| `id` | `int8` | Primary key dengan nomor otomatis. |
+| `created_at` | `timestamptz` | Waktu pembuatan data, terisi otomatis menggunakan `now()`. |
+| `nama` | `text` | Nama pengirim pesan. |
+| `email` | `text` | Alamat email pengirim. |
+| `pesan` | `text` | Isi pesan yang dikirimkan. |
+
+### Row Level Security (RLS)
+
+RLS telah diaktifkan pada tabel `messages`.
+
+- Belum terdapat policy untuk membaca data (`SELECT`).
+- Dengan demikian, pengunjung tidak memiliki izin untuk membaca pesan.
+- Policy `INSERT` direncanakan dan dibuat pada Minggu 15.
+
+---
+
+## 4. Tabel `skills`
+
+Tabel `skills` digunakan untuk menyimpan daftar keahlian beserta tingkat penguasaan yang ditampilkan pada portofolio.
+
+| Kolom | Tipe Data | Keterangan |
+|---|---|---|
+| `id` | `int8` | Primary key dengan nomor otomatis. |
+| `created_at` | `timestamptz` | Waktu pembuatan data, terisi otomatis menggunakan `now()`. |
+| `nama` | `text` | Nama keahlian. |
+| `level` | `text` | Tingkat penguasaan: Dasar, Menengah, atau Mahir. |
+
+### Row Level Security (RLS)
+
+RLS telah diaktifkan pada tabel `skills`.
+
+Policy yang diterapkan:
+
+- **Nama:** Pengunjung boleh membaca keahlian.
+- **Role:** `anon`.
+- **Operation:** `SELECT`.
+- **Akses:** Pengunjung dapat membaca seluruh baris data keahlian.
+
+---
+
+## 5. Ringkasan Database
+
+| Nama Tabel | Fungsi | RLS |
+|---|---|---|
+| `projects` | Menyimpan data proyek portofolio. | Aktif |
+| `messages` | Menyimpan pesan dari formulir kontak. | Aktif |
+| `skills` | Menyimpan data keahlian. | Aktif |
+
+**Catatan:** Seluruh tabel menggunakan Supabase sebagai database utama dan menerapkan Row Level Security (RLS) untuk mengatur hak akses data.
