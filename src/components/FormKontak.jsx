@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 
-const kelasInput = "mt-1 w-full rounded-lg border border-gray-300 bg-background dark:border-gray-600 dark:text-gray-300"
+const kelasInput = "p-2 mt-1 w-full rounded-lg border border-gray-300 bg-background dark:border-gray-600 text-muted-foreground"
 
 export default function FormKontak() {
     const [nama, setNama] = useState("");
@@ -39,8 +39,8 @@ export default function FormKontak() {
 
    return (
     <main className="mx-auto w-full max-w-7xl px-4 py-8 rounded-2xl">
-      <h1 className="text-3xl font-bold text-utama md:4xl dark:text-blue-200">Hubungi Saya</h1>
-      <p className="mt-3 text-lg text-gray-700 dark:text-gray-300 mb-3">
+      <h1 className="text-3xl font-bold text-primary md:4xl ">Hubungi Saya</h1>
+      <p className="mt-3 text-lg text-gray-700 text-muted-foreground mb-3">
         Punya pertanyaan atau ingin bekerja sama? Isi form berikut
       </p>
       <div className="flex flex-col md:items-stretch md:flex-row gap-4">
@@ -53,7 +53,7 @@ export default function FormKontak() {
             
             <div>
                 {/* nama */}
-              <label htmlFor="nama" className="block font-semibold dark:text-gray-300">
+              <label htmlFor="nama" className="block font-semibold text-muted-foreground">
                 Nama lengkap
               </label>
               <input
@@ -72,7 +72,7 @@ export default function FormKontak() {
               }
 
               {/* emmail */}
-              <label htmlFor="email" className="block font-semibold dark:text-gray-300">
+              <label htmlFor="email" className="block font-semibold text-muted-foreground">
                 Email
               </label>
               <input
@@ -92,7 +92,7 @@ export default function FormKontak() {
 
 
               {/* no hp */}
-              <label htmlFor="nomor" className="block font-semibold dark:text-gray-300  ">
+              <label htmlFor="nomor" className="block font-semibold text-muted-foreground  ">
                 Nomor HP
               </label>
               <input
@@ -111,7 +111,7 @@ export default function FormKontak() {
               }
               {/* keperluan */}
 
-              <label htmlFor="perlu" className="block font-semibold dark:text-gray-300">
+              <label htmlFor="perlu" className="block font-semibold text-muted-foreground">
                 Keperluan
               </label>
               
@@ -138,7 +138,7 @@ export default function FormKontak() {
               }
 
               {/* pesan */}
-              <label htmlFor="pesan" className="block font-semibold dark:text-gray-300">
+              <label htmlFor="pesan" className="block font-semibold text-muted-foreground">
                 Pesan
               </label>
               <textarea

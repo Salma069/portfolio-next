@@ -33,10 +33,31 @@ export default async function DetailProyek({ params }) {
     <main className="mx-auto max-w-3xl px-4 py-10">
 
       <Link href="/proyek" className="text-sm font-semibold text-
-aksen hover:underline">
+aksen mb-5 hover:underline">
 
         &larr; Kembali ke daftar proyek
+        
       </Link>
+      <nav
+        aria-label="Breadcrumb"
+        className="flex flex-wrap items-center gap-2 text-sm mb-6 text-muted-foreground"
+      >
+        <Link href="/" className="text-aksen hover:underline text-primary">
+          Beranda
+        </Link>
+
+        {" / "}
+
+        <Link href="/proyek" className="text-aksen hover:underline text-primary">
+          Proyek
+        </Link>
+
+        {" / "}
+
+        <span className="text-muted-foreground">{item.judul}</span>
+      </nav>
+
+
       <h1 className="mt-4 text-3xl font-bold text-primary
 md:text-4xl">{item.judul}</h1>
       <div className="mt-3 flex items-center gap-3">

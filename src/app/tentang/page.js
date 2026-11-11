@@ -63,7 +63,7 @@ const jadwal = [
 export default function Tentang() {
   return (
     <main className="mx-auto max-w-5xl px-4 py-10 m grid">
-      <h1 className="text-4xl font-bold text-muted-foreground">
+      <h1 className="text-4xl font-bold text-primary">
         Tentang Saya
       </h1>
 
@@ -103,22 +103,6 @@ export default function Tentang() {
         </div>
       </section>
 
-      {/* Skill */}
-
-      <section className="mt-4">
-        <Kartu judul="Keahlian">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 text-primary">
-            {skills.map((skill) => (
-              <SkillCard
-                key={skill.nama}
-                nama={skill.nama}
-                level={skill.level}
-              />
-            ))}
-          </div>
-        </Kartu>
-      </section>
-
       {/* Jadwal */}
 
       <section className="mt-4">
@@ -136,9 +120,9 @@ export default function Tentang() {
               <tbody>
                 {jadwal.map((item) => (
                   <tr key={item.day} className="border-b">
-                    <td className="p-3 dark:text-gray-200">{item.day}</td>
-                    <td className="p-3 dark:text-gray-200">{item.waktu}</td>
-                    <td className="p-3 dark:text-gray-200">{item.kegiatan}</td>
+                    <td className="p-3 text-muted-foreground">{item.day}</td>
+                    <td className="p-3 text-muted-foreground">{item.waktu}</td>
+                    <td className="p-3 text-muted-foreground">{item.kegiatan}</td>
                   </tr>
                 ))}
               </tbody>

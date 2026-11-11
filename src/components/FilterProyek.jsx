@@ -41,19 +41,20 @@ export default function FilterProyek({ proyek = [] }) {
         ))}
       </div>
 
-      <div>
-        <label htmlFor="cari" className="dark:text-gray-300">
+      <div className="mt-2">
+        <label htmlFor="cari" className="m-2 text-muted-foreground">
           Cari Proyek:
-        </label>
-
-        <input
+          <input
           type="text"
           id="cari"
           value={kata}
           onChange={(e) => setKata(e.target.value)}
           placeholder="Contoh: kalkulator"
-          className="mt-3 ml-1 w-full rounded-lg border border-gray-300 bg-white p-2 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 md:w-80"
+          className="mt-3 ml-1 w-full rounded-lg border border-primary bg-card p-2 text-primary-300 md:w-80"
         />
+        </label>
+
+        
 
         {kata !== "" && (
           <Button
@@ -66,7 +67,7 @@ export default function FilterProyek({ proyek = [] }) {
         )}
       </div>
 
-      <p className="mt-4 text-sm text-gray-600 dark:text-gray-400">
+      <p className="mt-4 text-sm text-muted-foreground">
         Menampilkan {hasil.length} dari {daftarProyek.length} proyek
       </p>
 
