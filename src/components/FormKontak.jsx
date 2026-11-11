@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 
-const kelasInput = "mt-1 w-full rounded-lg border border-gray-300 bg-white p-2 dark:bg-gray-600 dark:border-gray-600 dark:text-gray-300"
+const kelasInput = "mt-1 w-full rounded-lg border border-gray-300 bg-background dark:border-gray-600 dark:text-gray-300"
 
 export default function FormKontak() {
     const [nama, setNama] = useState("");
@@ -44,7 +44,7 @@ export default function FormKontak() {
         Punya pertanyaan atau ingin bekerja sama? Isi form berikut
       </p>
       <div className="flex flex-col md:items-stretch md:flex-row gap-4">
-        <div className="w-full min-w-0 flex-2 bg-white dark:bg-blue-950 rounded-lg px-6 py-4">
+        <div className="w-full min-w-0 flex-2 bg-card rounded-lg px-6 py-4">
           <form 
           className="w-full"
           onSubmit={kirim} noValidate

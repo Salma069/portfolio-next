@@ -1,11 +1,11 @@
+
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
-import Script from "next/script";
 
 const geistSans = Geist({
-  variable: "--font-geist-sans",
+  variable: "--font-sans",
   subsets: ["latin"],
 });
 
@@ -30,22 +30,16 @@ export default function RootLayout({ children }) {
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col text-gray-900 bg-blue-100 dark:bg-gray-900">
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              try {
-                const tema = localStorage.getItem("tema");
-                if (tema === "gelap") {
-                  document.documentElement.classList.add("dark");
-                }
-              } catch (e) {}
-            `,
-          }}
-        />
+      <head>
+        
+      </head>
+
+      <body className="min-h-full flex flex-col text-foreground bg-background">
         <Navbar />
+
         {children}
-        <Footer className="bg-aksen " />
+
+        <Footer className="bg-aksen" />
       </body>
     </html>
   );

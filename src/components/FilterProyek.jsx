@@ -1,69 +1,81 @@
+
 "use client";
 
 import ProyekCard from "@/components/ProyekCard";
-import { proyek } from "@/data/proyek";
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
 
 const daftarKategori = ["Semua", "HTML", "CSS", "JavaScript", "C++"];
-const tombolBiasa =
-  "rounded-full border border-utama px-4 py-1 text-sm font-semibold text-utama dark:text-blue-300 hover:bg-utama hover:text-white dark:hover:bg-blue-800 dark:hover:text-white dark:border-blue-200";
-const tombolAktif =
-  "rounded-full border bg-red-900 px-4 py-1 text-sm font-semibold text-white";
 
-export default function FilterProyek({ proyek }) {
+export default function FilterProyek({ proyek = [] }) {
   const [kategori, setKategori] = useState("Semua");
   const [kata, setKata] = useState("");
+
+  const daftarProyek = Array.isArray(proyek) ? proyek : [];
   const kataKecil = kata.toLowerCase();
-  const hasil = proyek.filter((p) => {
-    const cocokKategori = kategori === "Semua" || p.kategori === kategori;
-    const cocokJudul = p.judul.toLowerCase().includes(kataKecil);
-    const cocokDeskripsi = p.deskripsi.toLowerCase().includes(kataKecil);
-    const cocokKata = cocokJudul || cocokDeskripsi;
-    return cocokKategori && cocokKata;
+
+  const hasil = daftarProyek.filter((p) => {
+    const cocokKategori =
+      kategori === "Semua" || p.kategori === kategori;
+
+    const cocokJudul =
+      (p.judul ?? "").toLowerCase().includes(kataKecil);
+
+    const cocokDeskripsi =
+      (p.deskripsi ?? "").toLowerCase().includes(kataKecil);
+
+    return cocokKategori && (cocokJudul || cocokDeskripsi);
   });
 
   return (
     <div className="mt-8 w-full">
       <div className="flex flex-wrap gap-2">
         {daftarKategori.map((k) => (
-          <button
+          <Button
             key={k}
-            type="button"
+            variant={kategori === k ? "default" : "outline"}
             onClick={() => setKategori(k)}
-            className={kategori === k ? tombolAktif : tombolBiasa}
           >
             {k}
-          </button>
+          </Button>
         ))}
       </div>
+
       <div>
-        <label className="dark:text-gray-300">Cari Proyek:</label>
+        <label htmlFor="cari" className="dark:text-gray-300">
+          Cari Proyek:
+        </label>
+
         <input
           type="text"
           id="cari"
           value={kata}
           onChange={(e) => setKata(e.target.value)}
           placeholder="Contoh: kalkulator"
-          className="mt-3 ml-1 w-full rounded-lg border border-gray-300 bg-white dark:bg-gray-700 dark:border-gray-600 dark:text-gray-300 p-2 md:w-80"
+          className="mt-3 ml-1 w-full rounded-lg border border-gray-300 bg-white p-2 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 md:w-80"
         />
+
         {kata !== "" && (
-          <button
-            type="button"
+          <Button
+            variant="link"
             onClick={() => setKata("")}
-            className="mt-2 text-sm font-semibold text-aksen dark:text-red-500 hover:underline"
+            className="mt-2 px-0 text-aksen"
           >
-            Hapus Pencarian
-          </button>
+            Hapus pencarian
+          </Button>
         )}
       </div>
+
       <p className="mt-4 text-sm text-gray-600 dark:text-gray-400">
-        Menampilkan {hasil.length} dari {proyek.length} proyek
+        Menampilkan {hasil.length} dari {daftarProyek.length} proyek
       </p>
+
       <div className="mt-6 grid gap-6 md:grid-cols-3">
         {hasil.map((item) => (
           <ProyekCard key={item.slug} proyek={item} />
         ))}
       </div>
+
       {hasil.length === 0 && (
         <p className="mt-6 rounded-xl border border-dashed border-gray-300 p-6 text-center text-gray-600">
           Belum ada proyek

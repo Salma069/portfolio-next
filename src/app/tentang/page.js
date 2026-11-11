@@ -1,7 +1,9 @@
+
 export const metadata = {
-    title: "Tentang",
-    description: "Cerita, hobi, citacita, dan jadwal belajar Salma",
+  title: "Tentang",
+  description: "Cerita, hobi, citacita, dan jadwal belajar Salma",
 };
+
 import Hero from "@/components/Hero";
 import SkillCard from "@/components/SkillsCard";
 import Kartu from "@/components/Kartu";
@@ -61,55 +63,51 @@ const jadwal = [
 export default function Tentang() {
   return (
     <main className="mx-auto max-w-5xl px-4 py-10 m grid">
-        <h1 className="text-4xl font-bold text-utama dark:text-blue-300">Tentang Saya</h1>
-      <section className="mt-10">
-        <Kartu
-          judul={"Perkenalan"}
-          children={
-            <p className="text-gray-700 dark:text-gray-300">
-              Saya adalah siswi RPL di SMKN 1 Pasuruan yang tertarik pada
-              pengembangan web dan desain antarmuka. Saya sedang mengembangkan
-              kemampuan Frontend Developer dengan mempelajari HTML, CSS,
-              JavaScript, React, dan Next.js. Saya senang menciptakan website
-              yang modern, responsif, dan interaktif, serta terus belajar
-              melalui berbagai proyek untuk meningkatkan kemampuan dan
-              menghasilkan karya digital yang bermanfaat.
-            </p>
-          }
-        />
+      <h1 className="text-4xl font-bold text-muted-foreground">
+        Tentang Saya
+      </h1>
+
+      <section className="mt-10 bg-card rounded-xl">
+        <Kartu judul={"Perkenalan"}>
+          <p className="text-muted-foreground">
+            Saya adalah siswi RPL di SMKN 1 Pasuruan yang tertarik pada
+            pengembangan web dan desain antarmuka. Saya sedang mengembangkan
+            kemampuan Frontend Developer dengan mempelajari HTML, CSS,
+            JavaScript, React, dan Next.js. Saya senang menciptakan website
+            yang modern, responsif, dan interaktif, serta terus belajar
+            melalui berbagai proyek untuk meningkatkan kemampuan dan
+            menghasilkan karya digital yang bermanfaat.
+          </p>
+        </Kartu>
       </section>
 
       {/* Hobi */}
 
       <section className="mt-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-          <Kartu
-            judul={"Hobi"}
-            children=<div className="pl-4 dark:text-gray-200">
+          <Kartu judul={"Hobi"}>
+            <div className="pl-4 text-muted-foreground">
               {hobies.map((item) => (
                 <li key={item.hobi}>{item.hobi}</li>
               ))}
             </div>
-          />
-          <Kartu
-            judul="Target"
-            children={
-              <ol className="list-decimal pl-5 dark:text-gray-200">
-                {plans.map((item) => (
-                  <li key={item.plan}>{item.plan}</li>
-                ))}
-              </ol>
-            }
-          />
+          </Kartu>
+
+          <Kartu judul="Target">
+            <ol className="list-decimal pl-5 text-muted-foreground">
+              {plans.map((item) => (
+                <li key={item.plan}>{item.plan}</li>
+              ))}
+            </ol>
+          </Kartu>
         </div>
       </section>
 
       {/* Skill */}
 
       <section className="mt-4">
-        <Kartu
-          judul={"Keahlian"}
-          children=<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+        <Kartu judul="Keahlian">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 text-primary">
             {skills.map((skill) => (
               <SkillCard
                 key={skill.nama}
@@ -118,40 +116,36 @@ export default function Tentang() {
               />
             ))}
           </div>
-        />
+        </Kartu>
       </section>
 
       {/* Jadwal */}
 
       <section className="mt-4">
-        <Kartu
-          judul="Jadwal Belajar"
-          children={
-            <div className="overflow-x-auto">
-              <table className="w-full text-left ">
-                <thead className="bg-utama">
-                  <tr className="border-b text-white">
-                    <th className="p-3">Hari</th>
-                    <th className="p-3">Waktu</th>
-                    <th className="p-3">Kegiatan</th>
-                  </tr>
-                </thead>
+        <Kartu judul="Jadwal Belajar">
+          <div className="overflow-x-auto">
+            <table className="w-full text-left">
+              <thead className="bg-utama">
+                <tr className="border-b text-white">
+                  <th className="p-3">Hari</th>
+                  <th className="p-3">Waktu</th>
+                  <th className="p-3">Kegiatan</th>
+                </tr>
+              </thead>
 
-                <tbody>
-                  {jadwal.map((item) => (
-                    <tr key={item.day} className="border-b">
-                      <td className="p-3 dark:text-gray-200">{item.day}</td>
-                      <td className="p-3 dark:text-gray-200">{item.waktu}</td>
-                      <td className="p-3 dark:text-gray-200">{item.kegiatan}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          }
-        />
+              <tbody>
+                {jadwal.map((item) => (
+                  <tr key={item.day} className="border-b">
+                    <td className="p-3 dark:text-gray-200">{item.day}</td>
+                    <td className="p-3 dark:text-gray-200">{item.waktu}</td>
+                    <td className="p-3 dark:text-gray-200">{item.kegiatan}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </Kartu>
       </section>
     </main>
   );
 }
-
