@@ -8,7 +8,6 @@ import {supabase} from "@/lib/supabase"
 import { CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 
-
 export const metadata = {
     title: "Buku Tamu",
     description: "Tinggalkan kesan atau sapa Salma"
